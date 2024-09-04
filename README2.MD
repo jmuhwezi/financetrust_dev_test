@@ -17,7 +17,7 @@ This project provides a set of API endpoints to process automatically generate a
 - Django rest framework 3.14.0
 
 ## Prerequisites
-- Virtual env't.
+- Virtual env't. If running un dockerised app
 - Docker
 - Docker Compose
 
@@ -37,7 +37,14 @@ This project provides a set of API endpoints to process automatically generate a
     docker-compose up
     ```
 
-2. **Accessing the application**:
+3. **Running un dockerised app(optional)**:
+    ```sh
+    virtualenv venv && source venv/bin/activate
+    pip install -r requirements.txt
+    python manage.py runserver
+    ```
+
+4. **Accessing the application**:
 
     - **Base Url:**: [http://localhost:8000/](http://localhost:8000/)
     - **Custom Json File Upload**: [http://localhost:8000/api/upload-recipes-file/](http://localhost:8000/api/upload-recipes-file/). This is for updating/uploading new json file.
