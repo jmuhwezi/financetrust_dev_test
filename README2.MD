@@ -52,3 +52,8 @@ This project provides a set of API endpoints to process automatically generate a
     - **Count Per Recipe**: [http://localhost:8000/api/count-unique-recipes-occurrances/](http://localhost:8000/api/count-unique-recipes-occurrances/).
     - **Busiest Postcode**: [http://localhost:8000/api/find-most-delivered-recipe/](http://localhost:8000/api/find-most-delivered-recipe/). 
     - **Matched Recipe Names**: [http://localhost:8000/api/find-matching-recipes/?keywords=Potato&keywords=Veggie](http://localhost:8000/api/find-matching-recipes/?keywords=Potato&keywords=Veggie).
+
+3. **Running Tests**:
+    ```sh
+    docker-compose run web python manage.py test
+    ```
