@@ -1,6 +1,6 @@
 # Recipe Statistics API 
 
-This project provides a set of API endpoints to process automatically generate a JSON file with data and calculate statistics.
+This project provides a set of API endpoints to process automatically generated JSON file with data and calculate statistics.
 
 ## Project Tasks
 1. Count the number of unique recipe names.
