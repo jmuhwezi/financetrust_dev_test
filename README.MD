@@ -1,21 +1,8 @@
-# Small Stats API
+# Recipe Statistics API 
 
-In the given assignment we suggest you to process an automatically generated JSON file with some data and calculated some stats. Please ensure that you read, understand and follow instructions.
+This project provides a set of API endpoints to process automatically generate a JSON file with data and calculate statistics.
 
-## Instructions
-
-1. Folk the repository.
-2. Clone.
-3. Create a new branch called `<name>_ftb_dev` eg allan_musembya_ftb_dev.
-4. Create a pull request from your `ftb_dev` branch to the master branch.
-5. Reply to the thread when  you're done so we should start reviewing your code
-
-## Given
-
-Json data found in this repo.
-
-## Functional Requirements
-
+## Project Tasks
 1. Count the number of unique recipe names.
 2. Count the number of occurences for each unique recipe name (alphabetically ordered by recipe name).
 3. Find the postcode with most delivered recipes.
@@ -23,77 +10,50 @@ Json data found in this repo.
    - Potato
    - Veggie
    - Mushroom
+## Stacks
 
-## Non-functional Requirements
+- Python 3.7 and above
+- Django 3.2.15
+- Django rest framework 3.14.0
 
-1. The application is packaged with [Docker] (important)
-2. Setup scripts are provided. (Important)
-3. The submission is provided web `API`. Functional requirements are presented querable endpoints. (Important)
-4. It should be possible to (implementation is up to you):  
-   a. provide a custom fixtures file as input  
-   b. provide custom recipe names to search by (functional reqs. 4)
+## Prerequisites
+- Virtual env't. If running un dockerised app
+- Docker
+- Docker Compose
 
-## Expected output
+## Setup Steps
 
-Generate a JSON file of the following format:
+1. **Clone the repository**:
+    ```sh
+    git clone git@github.com:jmuhwezi/financetrust_dev_test.git
+    cd financetrust_dev_test/
+    git fetch origin Muhwezi_Jerald_ftb_dev
+    git checkout Muhwezi_Jerald_ftb_dev
+    ```
 
-1.
+2. **Ensure Docker is up and running**:
+    ```sh
+    docker-compose build
+    docker-compose up
+    ```
 
-```json5
-{
-  unique_recipe_count: 15,
-}
-```
+3. **Running un dockerised app(optional)**:
+    ```sh
+    virtualenv venv && source venv/bin/activate
+    pip install -r requirements.txt
+    python manage.py runserver
+    ```
 
-2.
+4. **Accessing the application**:
 
-```json5
-{
-  count_per_recipe: [
-    {
-      recipe: "Mediterranean Baked Veggies",
-      count: 1,
-    },
-    {
-      recipe: "Speedy Steak Fajitas",
-      count: 1,
-    },
-    {
-      recipe: "Tex-Mex Tilapia",
-      count: 3,
-    },
-  ],
-}
-```
+    - **Base Url:**: [http://localhost:8000/](http://localhost:8000/)
+    - **Custom Json File Upload**: [http://localhost:8000/api/upload-recipes-file/](http://localhost:8000/api/upload-recipes-file/). This is for updating/uploading new json file.
+    - **Unique Recipe Count**: [http://localhost:8000/api/find-unique-recipes/](http://localhost:8000/api/find-unique-recipes/).
+    - **Count Per Recipe**: [http://localhost:8000/api/count-unique-recipes-occurrances/](http://localhost:8000/api/count-unique-recipes-occurrances/).
+    - **Busiest Postcode**: [http://localhost:8000/api/find-most-delivered-recipe/](http://localhost:8000/api/find-most-delivered-recipe/). 
+    - **Matched Recipe Names**: [http://localhost:8000/api/find-matching-recipes/?keywords=Potato&keywords=Veggie](http://localhost:8000/api/find-matching-recipes/?keywords=Potato&keywords=Veggie).
 
-3.
-
-```json5
-    "busiest_postcode": {
-        "postcode": "10120",
-        "delivery_count": 1000
-    }
-```
-
-4.
-
-```json5
-    "match_by_name": [
-        "Mediterranean Baked Veggies", "Speedy Steak Fajitas", "Tex-Mex Tilapia"
-    ]
-}
-```
-
-## Review Criteria
-
-We expect that the assignment will not take more than 2-3 hours of work. In our judgement we rely on common sense and do not expect production ready code. We are rather interested in your problem solving skills and command of the programming language that you chose.
-
-It worth mentioning that we will be testing your submission against different input data sets.
-
-**General criteria from most important to less important**:
-
-1. Functional and non-functional requirements are met.
-2. Prefer application efficiency over code organization complexity.
-3. Code is readable and comprehensible. Setup instructions and run instructions are provided.
-4. Tests showcased are a plus (_no need to cover everything_).
-5. Supporting notes on taken decisions and further clarifications are welcome.
+3. **Running Tests**:
+    ```sh
+    docker-compose run web python manage.py test
+    ```
